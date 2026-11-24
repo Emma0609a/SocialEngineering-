@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import FakeUrlBar from "./FakeUrlBar";
 import Countdown from "./Countdown";
 
 export type Entered = {
@@ -33,8 +32,6 @@ export default function BaitScreen({
   return (
     <main className="min-h-screen bg-sunset font-body">
       <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-6">
-        <FakeUrlBar />
-
         <header className="flex flex-col items-center gap-4 text-center">
           <div className="flex items-center gap-2">
             {/* Senuelo nº 5: insignia falsa */}

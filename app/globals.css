@@ -19,7 +19,29 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glow suave reutilizable */
+/* Glow suave: SOLO para el cebo (senuelo visual intencionado) */
 .glow {
   box-shadow: 0 0 60px -10px rgba(217, 107, 160, 0.55);
+}
+
+/* Entrada escalonada para la pantalla de revelacion */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
 }

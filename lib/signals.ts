@@ -10,15 +10,15 @@ export type Signal = {
 export const SIGNALS: Signal[] = [
   {
     id: 1,
-    titulo: "Dominio sospechoso",
+    titulo: "Mira la URL real",
     explicacion:
-      "Errores en el nombre o terminaciones raras (.tk, .top). Un sorteo oficial no vive en un dominio asi.",
+      "Esta pagina vive en un dominio generico (por ejemplo *.vercel.app). Un sorteo oficial de Sony o Rockstar jamas estaria ahi: siempre en su propio dominio.",
   },
   {
     id: 2,
-    titulo: "Candado abierto / sin HTTPS",
+    titulo: "Candado y HTTPS",
     explicacion:
-      "La barra muestra conexion no segura. Nunca escribas datos en una pagina sin candado cerrado.",
+      "Comprueba el candado del navegador. Que una pagina tenga HTTPS no la hace legitima, pero su ausencia si es una alarma clara.",
   },
   {
     id: 3,
