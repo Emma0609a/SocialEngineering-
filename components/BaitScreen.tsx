@@ -5,12 +5,11 @@ import Countdown from "./Countdown";
 
 export type Entered = {
   nombre: string;
+  direccion: string;
   email: string;
-  usuario: string;
-  password: string;
 };
 
-const EMPTY: Entered = { nombre: "", email: "", usuario: "", password: "" };
+const EMPTY: Entered = { nombre: "", direccion: "", email: "" };
 
 // Pantalla CEBO. Imita un sorteo falso. NO envia ni guarda nada:
 // onSubmit hace preventDefault y pasa los datos al estado del padre.
@@ -21,8 +20,15 @@ export default function BaitScreen({
 }) {
   const [data, setData] = useState<Entered>(EMPTY);
 
+  // El boton solo se activa cuando los tres campos tienen contenido.
+  const completo =
+    data.nombre.trim() !== "" &&
+    data.direccion.trim() !== "" &&
+    data.email.trim() !== "";
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault(); // nada sale del navegador
+    if (!completo) return;
     onCaught(data);
   }
 
@@ -66,6 +72,13 @@ export default function BaitScreen({
               value={data.nombre}
               onChange={(e) => setData({ ...data, nombre: e.target.value })}
             />
+            {/* Senuelo nº 6: pide datos personales de mas (direccion) */}
+            <input
+              className={field}
+              placeholder="Direccion de envio del premio"
+              value={data.direccion}
+              onChange={(e) => setData({ ...data, direccion: e.target.value })}
+            />
             <input
               className={field}
               type="email"
@@ -73,29 +86,16 @@ export default function BaitScreen({
               value={data.email}
               onChange={(e) => setData({ ...data, email: e.target.value })}
             />
-            <input
-              className={field}
-              placeholder="Usuario de tu cuenta"
-              value={data.usuario}
-              onChange={(e) => setData({ ...data, usuario: e.target.value })}
-            />
-            {/* Senuelo nº 6: pide la contrasena */}
-            <input
-              className={field}
-              type="password"
-              placeholder="Contrasena de tu cuenta (para verificarte)"
-              value={data.password}
-              onChange={(e) => setData({ ...data, password: e.target.value })}
-            />
             <p className="text-xs text-paper/50">
-              Nunca escribas una contrasena real. Usa una inventada.
+              Simulacro: usa datos inventados, no los tuyos reales.
             </p>
 
             <button
               type="submit"
-              className="mt-2 rounded-xl bg-chrome-blue py-3 text-lg font-bold text-white transition hover:brightness-110"
+              disabled={!completo}
+              className="mt-2 rounded-xl bg-chrome-blue py-3 text-lg font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:bg-white/20 disabled:text-paper/50 disabled:hover:brightness-100"
             >
-              RECLAMAR MI PREMIO
+              {completo ? "INSCRIBIRME" : "Rellena los 3 campos"}
             </button>
           </div>
         </form>

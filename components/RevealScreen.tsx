@@ -36,9 +36,8 @@ export default function RevealScreen({
 
   const typed = [
     ["Nombre", entered.nombre],
+    ["Direccion", entered.direccion],
     ["Correo", entered.email],
-    ["Usuario", entered.usuario],
-    ["Contrasena", entered.password ? "•".repeat(entered.password.length) : ""],
   ].filter(([, v]) => v);
 
   const row =
@@ -94,14 +93,14 @@ export default function RevealScreen({
             </figure>
             <figure>
               <img
-                src="/crop-password.jpg"
-                alt="Campo que pide la contrasena de tu cuenta"
+                src="/crop-direccion.jpg"
+                alt="Campo que pide tu direccion de envio"
                 className="w-full rounded-lg"
                 width={420}
-                height={70}
+                height={66}
               />
               <figcaption className="mt-2 text-paper/60">
-                Te piden la contrasena. Nadie legitimo lo hace.
+                Piden tu direccion: datos de mas para un sorteo.
               </figcaption>
             </figure>
             <figure>
@@ -135,12 +134,11 @@ export default function RevealScreen({
                 </div>
               ))}
             </dl>
-            {entered.password && (
-              <p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-bait-urgent">
-                Si escribiste una contrasena real, cambiala ahora mismo en el
-                servicio donde la uses.
-              </p>
-            )}
+            <p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-bait-urgent">
+              Con tu nombre, tu direccion y tu correo, un estafador ya sabe quien
+              eres, donde vives y por donde contactarte. No hagas falta mas para
+              suplantarte o enganarte mejor la proxima vez.
+            </p>
           </section>
         )}
 

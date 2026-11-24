@@ -4,7 +4,7 @@ import { useState } from "react";
 import BaitScreen, { type Entered } from "./BaitScreen";
 import RevealScreen from "./RevealScreen";
 
-const EMPTY: Entered = { nombre: "", email: "", usuario: "", password: "" };
+const EMPTY: Entered = { nombre: "", direccion: "", email: "" };
 
 // Maquina de estados del simulacro: cebo -> revelacion.
 // Todo vive en memoria del componente; al recargar, se pierde.

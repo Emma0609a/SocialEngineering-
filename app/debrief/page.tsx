@@ -9,7 +9,11 @@ export default function DebriefPage() {
   const router = useRouter();
   return (
     <RevealScreen
-      entered={{ nombre: "", email: "", usuario: "", password: "" }}
+      entered={{
+        nombre: "Ana Perez (ejemplo)",
+        direccion: "Calle Falsa 123, San Jose",
+        email: "ana.ejemplo@correo.com",
+      }}
       onReset={() => router.push("/")}
     />
   );

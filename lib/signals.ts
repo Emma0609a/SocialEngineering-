@@ -40,9 +40,9 @@ export const SIGNALS: Signal[] = [
   },
   {
     id: 6,
-    titulo: "Pide tu contrasena",
+    titulo: "Pide datos de mas",
     explicacion:
-      "Te piden la contrasena de una cuenta para 'verificarte'. Ningun servicio legitimo hace eso.",
+      "Para un 'sorteo' te piden nombre completo y direccion. Es demasiada informacion personal para lo que ofrecen: asi te perfilan o te suplantan.",
   },
   {
     id: 7,
